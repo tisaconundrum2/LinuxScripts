@@ -1,3 +1,4 @@
+#!/bin/bash
 #### Get Host Name ####
 echo 'enter hostname in "enXXXXXXXl" format'
 read HOST
@@ -10,4 +11,3 @@ sudo /opt/pbis/bin/lwsm restart lsass
 sudo domainjoin-cli leave fulton.ad.asu.edu
 sudo domainjoin-cli join fulton.ad.asu.edu
 sudo reboot'
-
