@@ -27,6 +27,7 @@ loginPBIS_OPEN(){
 		/opt/pbis/bin/config LoginShellTemplate /bin/bash
 		#/opt/pbis/bin/config HomeDirTemplate %H/%U
 		#/opt/pbis/bin/config RequireMembershipOf
+}
 
 preConfigureLandscape(){
 		# PRE-CONFIGURE
@@ -74,7 +75,7 @@ getDepartmentSoftware(){
 	# CIDSE SPECIFIC SOFTWARE CAN BE FOUND Here:
 	# /mnt/source/linux/software/cidse
 	# cidse-fs-01.cidse.dhcp.asu.edu/linux/software/cidse
-
+        return 0
 }
 
 getThePickles(){
@@ -159,6 +160,8 @@ fi
 #
 
 #check to see if they want to un GPU script
+# We really should have a wget set on this script instead of having a copy of it
+# directly in the main script
 answerGPU='N'
 echo 'would you like to run gpu script [y/N]'
 read -r answerGPU
