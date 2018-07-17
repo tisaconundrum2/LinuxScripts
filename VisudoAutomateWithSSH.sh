@@ -20,7 +20,7 @@ echo "$pwd" | sudo -Sv && echo "$Group" >> sudo tee -a /tmp/sudoers.tmp
 clear
 echo "Output of sudoers file"
 echo
-echo "$pwd" | sudo -Sv && cat /tmp/sudoers.tmp
+echo "$pwd" | sudo -Sv && bash -s cat /tmp/sudoers.tmp
 echo
 read -rp "Do the contents of the file look correct? [y/N] " answer
 
