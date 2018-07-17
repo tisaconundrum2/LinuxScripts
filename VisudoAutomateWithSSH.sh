@@ -23,8 +23,7 @@ echo "Output of sudoers file"
 echo
 cat /etc/sudoers.tmp
 echo
-echo "Does the contents of the file look correct? [y/N]"
-read -r answer
+read -rp "Do the contents of the file look correct? [y/N] " answer
 
 if [[ $answer = [yY] ]]; then
     cp /etc/sudoers.tmp /etc/sudoers
