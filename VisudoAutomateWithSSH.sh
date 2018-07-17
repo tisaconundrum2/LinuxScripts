@@ -15,7 +15,7 @@ echo "Example: CIDSE-adoipe1_Lab_Admins"
 read -r Group
 Group="%FULTON\\\\\\$Group	ALL=(ALL:ALL) ALL"
 # add to the sudo file
-echo "$pwd" | sudo -Sv && cat /etc/sudoers >> /tmp/sudoers.tmp
+echo "$pwd" | sudo -Sv && cat /etc/sudoers > /tmp/sudoers.tmp
 echo "$pwd" | sudo -Sv && echo "$Group" >> sudo tee -a /tmp/sudoers.tmp
 clear
 echo "Output of sudoers file"
