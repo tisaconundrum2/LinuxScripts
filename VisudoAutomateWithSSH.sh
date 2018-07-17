@@ -5,30 +5,29 @@ read -r HOST
 HOST='techs@'$HOST'.cidse.dhcp.asu.edu'
 
 #### Connect to the System ####
-echo 'Enter Techs password When Prompted'
 ssh -t "$HOST" '
 #### Run Commands ####
+read -rsp "Password:" pwd
+echo
 echo "Please enter groupname without prefix"
 echo "The standad lab admin groupname is: \"CIDSE-<professor ASUAD>_Lab_Admins\""
 echo "Example: CIDSE-adoipe1_Lab_Admins"
 read -r Group
 Group="%FULTON\\\\\\$Group	ALL=(ALL:ALL) ALL"
-CidseItGroup='\''%FULTON\\\cidse-it	ALL=(ALL:ALL) ALL'\''
 # add to the sudo file
-cat /etc/sudoers > /etc/sudoers.tmp
-echo "$Group" >> /etc/sudoers.tmp
-echo "$CidseItGroup" >> /etc/sudoers.tmp
+echo "$pwd" | sudo -Sv && cat /etc/sudoers >> /tmp/sudoers.tmp
+echo "$pwd" | sudo -Sv && echo "$Group" >> sudo tee -a /tmp/sudoers.tmp
 clear
 echo "Output of sudoers file"
 echo
-cat /etc/sudoers.tmp
+echo "$pwd" | sudo -Sv && cat /tmp/sudoers.tmp
 echo
 read -rp "Do the contents of the file look correct? [y/N] " answer
 
 if [[ $answer = [yY] ]]; then
-    cp /etc/sudoers.tmp /etc/sudoers
+    echo "$pwd" | sudo -Sv && cp /tmp/sudoers.tmp /etc/sudoers
 else
     echo "Not commiting changes. Now exiting"
 fi
-rm /etc/sudoers.tmp
+rm /tmp/sudoers.tmp
 '
