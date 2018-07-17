@@ -16,8 +16,8 @@ Group="%FULTON\\\\\\$Group	ALL=(ALL:ALL) ALL"
 CidseItGroup='\''%FULTON\\\cidse-it	ALL=(ALL:ALL) ALL'\''
 # add to the sudo file
 cat /etc/sudoers > /etc/sudoers.tmp
-echo "$Group" >> -a /etc/sudoers.tmp
-echo "$CidseItGroup" >> -a /etc/sudoers.tmp
+echo "$Group" >> /etc/sudoers.tmp
+echo "$CidseItGroup" >> /etc/sudoers.tmp
 clear
 echo "Output of sudoers file"
 echo
