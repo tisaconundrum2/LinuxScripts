@@ -155,7 +155,6 @@ addOtherGroups(){
 	fi
 }
 
-
 runGPUInstall(){
 	# Run GPU Script
 	# check to see if they want to un GPU script
@@ -179,3 +178,22 @@ runCleanUp(){
 	sleep 10
 	reboot
 }
+
+joinDomain
+loginPBIS_OPEN
+preConfigureLandscape
+addAdminstrators
+addPrinters
+setBaseSoftware
+setDepartmentSoftware
+setThePickles
+setTechProfile
+setDefaultUserProfile
+setDesktopBackground
+setLoginConfiguration
+setCIDSEIT
+makeRCLocal
+makeGroupAdmins
+addOtherGroups
+runGPUInstall
+runCleanUp
